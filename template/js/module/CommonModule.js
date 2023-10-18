@@ -638,6 +638,35 @@ export default function CommonModule() {
       });
     }
 
+    const cmPerson = document.querySelectorAll(".cm-person");
+    if (cmPerson) {
+      var timeLine14 = new TimelineMax();
+      timeLine14.staggerFrom(
+        ".cm-person",
+        0.3,
+        { translateY: 50, scale: 1, opacity: 0 },
+        0.1
+      );
+      timeLine14.reverse();
+      gsap.to(".cm-person", {
+        scrollTrigger: {
+          pin: false,
+          markers: false,
+          trigger: ".cm-person",
+          scrub: true,
+          start: "top bottom-=150",
+          end: "bottom+=200 center",
+          onToggle: (self) => {
+            if (self.isActive) {
+              timeLine14.play();
+            } else {
+              timeLine14.reverse();
+            }
+          },
+        },
+      });
+    }
+
     // const ckWrapper = document.querySelectorAll(".ck-wrapper")
     // if (ckWrapper) {
     //   ckWrapper.forEach(item => {
