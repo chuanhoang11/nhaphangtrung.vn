@@ -1,0 +1,90 @@
+header.hd
+  .container 
+    .hd-wrapper 
+      a(href="").custom-logo-link 
+        +img('logo.png')
+      .hd-main 
+        .hd-top 
+          .hd-ct 
+            a(href="").hd-ct-link 
+              span.icon
+                +img('hd-ct-icon-1.svg')
+              span.text Tỷ giá: 3,439 VNĐ/NDT
+            a(href="").hd-ct-link 
+              span.icon
+                +img('hd-ct-icon-2.svg') 
+              span.text Hotline: 0961 700 894
+        .hd-bot 
+          .hd-nav
+            .menu-nav
+              ul.menu-list
+                li.menu-item.current-menu-item
+                  a.menu-link(href="") Giới thiệu
+                    span.dc 
+                      span.dc-inner
+                      span.dc-inner
+                li.menu-item
+                  a.menu-link(href="") Bảng giá
+                li.menu-item.dropdown
+                  a.menu-link(href="") Hướng dẫn
+                  ul.menu-list
+                    li.menu-item
+                      a.menu-link(href="") Hướng dẫn Demo
+                    li.menu-item
+                      a.menu-link(href="") Hướng dẫn Demo
+                li.menu-item
+                  a.menu-link(href="") Chính sách
+                li.menu-item
+                  a.menu-link(href="") Tin tức
+                li.menu-item
+                  a.menu-link(href="") Cài đặt
+      .hd-right
+        .hd-ctr
+          .hd-ctr-mb 
+            span.text TÀI KHOẢN 
+          .hd-ctr-list 
+            .hd-ctr-item 
+              +Btn('ĐĂNG KÝ', "")
+            .hd-ctr-item 
+              +Btn('ĐĂNG NHẬP', "", "second")
+        +burger
+  .mobile-overlay
+  .mobile
+    .mobile-con
+      .mobile-wr
+        .mobile-nav
+          .menu-nav
+            ul.menu-list
+              li.menu-item
+                a.menu-link(href='')
+                  | Giới thiệu
+              li.menu-item
+                a.menu-link(href='')
+                  | Bảng giá
+              li.menu-item.dropdown
+                a.menu-link(href='')
+                  | Hướng dẫn
+                ul.menu-list
+                  li.menu-item
+                    a.menu-link(href='')
+                      | DemoSp
+                  li.menu-item
+                    a.menu-link(href='')
+                      | DemoSp
+              li.menu-item
+                a.menu-link(href='')
+                  | Chính sách
+              li.menu-item
+                a.menu-link(href='')
+                  | Tin tức
+              li.menu-item
+                a.menu-link(href='')
+                  | Cài đặt
+          .mobile-content
+      .mobile-mxh
+        a.mobile-mxh-link(href='')
+          img(src='./assets/images/social-1.svg' alt='')
+        a.mobile-mxh-link(href='')
+          img(src='./assets/images/social-2.svg' alt='')
+        a.mobile-mxh-link(href='')
+          img(src='./assets/images/social-3.svg' alt='')

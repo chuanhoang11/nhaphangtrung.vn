@@ -1,0 +1,122 @@
+
+mixin img(name)
+  img(src="./assets/images/" + name, alt="")
+mixin re-input(placeholder)
+  input(type="text", class="re-input", placeholder= placeholder)
+mixin re-area(placeholder)
+  input(type="text", class="re-input area", placeholder= placeholder)
+mixin Btn(text, type, classCustom)
+    if(!classCustom)
+        if(type == "button")
+            button.btn(type="submit",class=classCustom)
+                span.text #{text}
+        else
+            a.btn(href="",class=classCustom)
+                span.text #{text}
+    else 
+        if(type == "button")
+            button.btn(type="submit",class=classCustom)
+                span.text #{text}
+        else
+            a.btn(href="", class=classCustom)
+                span.text #{text}
+mixin PageNumber 
+    ul.page-numbers
+        li 
+            a.prev.page-numbers(href="")
+                i.fa.fa-angle-left
+        li
+            span.page-numbers.current   
+                | 1
+        li
+            a.page-numbers(href="")   
+                | 2
+        li 
+            span.page-numbers.dot 
+                |...
+        li
+            a.page-numbers(href="")   
+                | 10
+        li 
+            a.next.page-numbers(href="")
+                i.fa.fa-angle-right
+mixin breadCrumb(arr)
+  .breadcrumb
+    .container
+      .breadcrumb-wrapper 
+        ul.breadcrumb-list
+          li.breadcrumb-item(data-aos="fade-right")
+            a.breadcrumb-link(href="")
+              | Trang chủ
+          each txt in arr
+            li.breadcrumb-item(data-aos="fade-right")
+              a.breadcrumb-link(href="") #{txt}
+mixin pagination(classCustom)
+    .swiper-pagination(class=classCustom)
+
+mixin proWrap(img = "./assets/images/pro-img-1.jpg",name = "Cherry đỏ Mỹ size 8.5",sale = "20%",signature = "Bán chạy",priceNews = "45,000đ",price = "50,000đ", giamgia)
+    .pro-wrap
+      a.pro-img.hv-bd(href="")
+        img(src= img, alt="") 
+      .pro-content 
+        h3.pro-name 
+          a(href="") #{name}
+        .pro-tag
+          .pro-tag-item.sale #{sale}
+          .pro-tag-item.signature #{signature}
+        .pro-bot 
+          .pro-price 
+            p.price #{priceNews}
+            p.price.old #{price}
+          a.pro-add(href="")
+            i.far.fa-plus
+            span.text Thêm giỏ hàng
+        if(giamgia)
+          .pro-gg
+            .icon 
+              img(src="./assets/images/pro-gg-icon.svg", alt="")
+            .inner 
+              .text 
+                | Giảm giá
+
+mixin CountDown(time,customClass)
+    .cdw(data-time= time, class= customClass)
+      .cdw-list 
+          .cdw-item(style="display: none")
+              .cdw-inner 
+                  .number.date
+          .cdw-item 
+              .cdw-inner 
+                  .number.hour
+          .cdw-item 
+              .cdw-inner 
+                  .number.minute
+          .cdw-item 
+              .cdw-inner 
+                  .number.second
+mixin SwiperControl(customClass)
+    .swiper-control(class= customClass) 
+      .swiper-control-btn.swiper-prev 
+          i.far.fa-long-arrow-left
+      .swiper-control-btn.swiper-next 
+          i.far.fa-long-arrow-right
+
+mixin Count()
+    .count 
+        .count-btn.count-minus 
+            i.fas.fa-minus.icon
+        input(type="text", class="count-input", max="999", min="0", value="1", hidden)
+        p.count-number 
+        .count-btn.count-plus 
+            i.fas.fa-plus.icon
+
+mixin burger 
+  .hd-burger#hamburger
+    span.text Menu 
+    .burger 
+      .hamburger 
+        span.line
+        span.line 
+
+        
+

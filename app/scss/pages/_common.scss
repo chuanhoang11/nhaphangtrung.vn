@@ -1,0 +1,41 @@
+.re-setting {
+    @include flex-wr;
+    gap: 2rem;
+    align-items: center;
+
+    &-list {
+        @include flex;
+        flex-wrap: wrap;
+        gap: 2rem;
+    }
+
+    .title {
+        @include fz-24;
+        font-weight: 700;
+        color: $color-third;
+    }
+
+    &-btn {
+        @include flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+        font-weight: 600;
+        padding: 1.2rem 2.4rem;
+        border-radius: 100rem;
+        background-color: #BA0D00;
+        color: white;
+        min-width: 21rem;
+        box-shadow: 0px 6px 12px 0px rgba(0, 0, 0, 0.15);
+
+        img {
+            width: 2.4rem;
+            flex-shrink: 0;
+            border-radius: 0;
+        }
+
+        &.coccoc {
+            background-color: #08B935;
+        }
+    }
+}

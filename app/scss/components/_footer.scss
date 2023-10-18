@@ -1,0 +1,326 @@
+.hello {}
+
+.ft {
+    color: $color-third;
+    padding: var(--pd-sc) 0;
+    margin-top: calc(123/1728 * 100vw);
+    position: relative;
+
+    &::before {
+        @include pseudo;
+        @include full;
+        background-color: #FCF2DE;
+        z-index: -2;
+    }
+
+    &-wave {
+        position: absolute;
+        height: calc(123/1728 * 100vw);
+        bottom: 100%;
+        left: 0;
+        width: 100%;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+
+    &-dc {
+        position: absolute;
+        height: calc(308/1728 * 100vw);
+        bottom: 100%;
+        right: 0;
+        width: 30%;
+
+        img {
+            height: 100%;
+            width: auto;
+            display: block;
+        }
+    }
+
+    &-car {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        z-index: -1;
+
+        @include max(900px) {
+            display: none;
+        }
+
+        img {
+            width: 100%;
+            display: block;
+        }
+    }
+
+    &-col {
+        &:nth-child(1) {
+            width: calc(3/12 * 100%);
+            display: flex;
+            flex-direction: column;
+            gap: 2.4rem;
+
+            @include max(1000px) {
+                width: 30%;
+                order: 1;
+            }
+
+            @include max(750px) {
+                width: 100%;
+            }
+        }
+
+        &:nth-child(2) {
+            width: calc(4/12 * 100%);
+            display: flex;
+            flex-direction: column;
+
+            @include max(1000px) {
+                width: 100%;
+                order: 4;
+            }
+        }
+
+        &:nth-child(3) {
+            width: calc(2/12 * 100%);
+
+            @include max(1000px) {
+                width: 25%;
+                order: 2;
+            }
+
+            @include max(750px) {
+                width: 20rem;
+            }
+
+            @include max($mobile) {
+                width: 100%;
+                order: 3;
+            }
+        }
+
+        &:nth-child(4) {
+            width: calc(3/12 * 100%);
+
+            @include max(1000px) {
+                width: 45%;
+                order: 2;
+            }
+
+            @include max(750px) {
+                flex: 1;
+            }
+
+            @include max($mobile) {
+                width: 100%;
+                flex: unset;
+            }
+        }
+    }
+
+    .custom-logo-link {
+        max-width: 100%;
+        margin: 0 auto;
+        width: 18rem;
+        display: flex;
+
+        img {
+            width: 100%;
+            display: block;
+        }
+    }
+
+    .re-setting {
+        flex-direction: column;
+
+        &-list {
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        &-btn {
+            margin: 0 auto;
+
+            @include max($mobile) {
+                min-width: unset;
+                font-size: 1.4rem;
+                padding: .8rem 1.6rem;
+
+                img {
+                    width: 1.8rem;
+                }
+            }
+        }
+    }
+
+    &-title {
+        font-size: 2rem;
+        font-weight: 600;
+        margin-bottom: 1.6rem;
+        color: $color-pri;
+    }
+
+    &-ad {
+        display: flex;
+        flex-direction: column;
+        gap: 2.4rem;
+        margin-bottom: 2.4rem;
+
+        &-title {
+            font-weight: 600;
+            color: $color-third;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+
+            &::after {
+                content: '';
+                height: .1rem;
+                flex: 1;
+                background-color: $color-third;
+                display: inline-block;
+            }
+        }
+
+        &-list {
+            font-size: 1.4rem;
+            margin-left: 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: .5rem;
+        }
+
+        a {
+            transition: .3s ease-in-out;
+
+            @include hover {
+                color: $color-second;
+            }
+        }
+    }
+
+    &-author {
+        display: flex;
+        align-items: center;
+        font-size: 1.4rem;
+        gap: .8rem;
+        margin-top: auto;
+
+        img {
+            width: 18rem;
+        }
+    }
+
+    &-menu {
+        .menu {
+            &-list {
+                display: flex;
+                flex-direction: column;
+                gap: .5rem;
+            }
+
+            &-item {
+                position: relative;
+                // line-height: 100%;
+                transition: .3s ease-in-out;
+
+
+                &::before {
+                    @include pseudo;
+                    top: 1rem;
+                    left: 0;
+                    width: .5rem;
+                    height: .5rem;
+                    border-radius: 100rem;
+                    background-color: $color-pri;
+                    opacity: 0;
+                    transition: .3s ease-in-out;
+                }
+
+                a {
+                    position: relative;
+
+                    &::after {
+                        @include pseudo;
+                        bottom: 0;
+                        left: 0;
+                        width: 0;
+                        transition: .3s ease-in-out;
+                        background-color: $color-pri;
+                        height: .1rem;
+                    }
+                }
+
+                @include hover {
+                    &::before {
+                        opacity: 1;
+                    }
+
+                    a {
+                        &::after {
+                            width: 100%;
+                        }
+                    }
+
+                    color: $color-pri;
+                    padding-left: 1rem;
+                }
+
+                &.current-menu-item {
+                    &::before {
+                        opacity: 1;
+                    }
+
+                    a {
+                        &::after {
+                            width: 100%;
+                        }
+                    }
+
+                    color: $color-pri;
+                    padding-left: 1rem;
+                }
+            }
+        }
+    }
+
+    &-ib {
+        display: flex;
+        flex-direction: column;
+        gap: 2.4rem;
+        margin-top: 4rem;
+
+        &-item {
+            @include flex-wr;
+            gap: 1rem;
+        }
+
+        &-img {
+            width: 7.2rem;
+            height: 7.2rem;
+            flex-shrink: 0;
+            border: .1rem solid $color-pri;
+            border-radius: 1rem;
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+
+        &-content {
+            flex: 1;
+        }
+
+        &-tt {
+            font-size: 1.4rem;
+            font-weight: 400;
+        }
+    }
+}
