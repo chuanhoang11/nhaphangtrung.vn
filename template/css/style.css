@@ -6077,7 +6077,8 @@ table .status {
     -ms-flex-align: center;
     align-items: center;
     margin-bottom: -4.5vw;
-    margin-top: -15vw; }
+    margin-top: -15vw;
+    pointer-events: none; }
     @media screen and (max-width: 900px) {
       .bns-list {
         margin-top: -5vw; } }

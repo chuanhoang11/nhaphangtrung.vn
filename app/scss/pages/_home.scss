@@ -2279,6 +2279,7 @@
         align-items: center;
         margin-bottom: -4.5vw;
         margin-top: -15vw;
+        pointer-events: none;
 
         @include max(900px) {
             margin-top: -5vw;
