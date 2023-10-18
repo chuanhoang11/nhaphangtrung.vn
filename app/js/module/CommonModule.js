@@ -441,7 +441,34 @@ export default function CommonModule() {
         },
       });
     }
-
+    const serTitle = document.querySelectorAll(".ser .t-title-second");
+    if (serTitle) {
+      var timeLine13 = new TimelineMax();
+      timeLine13.staggerFrom(
+        ".ser .t-title-second",
+        0.3,
+        { scale: 0.5, opacity: 0 },
+        0.1
+      );
+      timeLine13.reverse();
+      gsap.to(".ser .t-title-second", {
+        scrollTrigger: {
+          pin: false,
+          markers: false,
+          trigger: ".ser .t-title-second",
+          scrub: true,
+          start: "top bottom-=150",
+          end: "bottom+=200 center",
+          onToggle: (self) => {
+            if (self.isActive) {
+              timeLine13.play();
+            } else {
+              timeLine13.reverse();
+            }
+          },
+        },
+      });
+    }
     const ftDc = document.querySelectorAll(".ft-dc");
     if (ftDc) {
       var timeLine12 = new TimelineMax();
@@ -585,22 +612,53 @@ export default function CommonModule() {
         scrollTrigger: {
           pin: false,
           markers: false,
-          trigger: ".road", // Sử dụng đối tượng gps làm trigger
-          scrub: false, // Kích hoạt "scrubbing" để áp dụng animation dựa trên vị trí cuộn trang
-          start: "top center", // Khi đối tượng path nằm ở vị trí trung tâm của viewport
-          end: "bottom center", // Khi đối tượng path đi qua đáy viewport
-          onEnter: (e) => {
-            // Thực hiện hành động khi phần tử cuộn được kích hoạt
-            console.log(e);
+          trigger: ".road",
+          scrub: false,
+          start: "top center",
+          end: "bottom center",
+          onEnter: (self) => {
+            if (self.direction != -1) {
+              roadPlane.classList.remove('revert')
+            } else {
+              roadPlane.classList.add('revert')
+
+            }
           },
           onUpdate: (self) => {
-            console.log(self);
-            console.log(self.progress * 100);
+            if (self.direction != -1) {
+              roadPlane.classList.remove('revert')
+            } else {
+              roadPlane.classList.add('revert')
+
+            }
             roadPlane.style;
             roadPlane.style = `offset-distance:${self.progress * 100}%`;
           },
         },
       });
     }
+
+    // const ckWrapper = document.querySelectorAll(".ck-wrapper")
+    // if (ckWrapper) {
+    //   ckWrapper.forEach(item => {
+    //     gsap.to(item, {
+    //       yPercent: (-100 * 2),
+    //       scrollTrigger: {
+    //         pin: true,
+    //         markers: false,
+    //         trigger: item,
+    //         scrub: true,
+    //         start: "top top+=200",
+    //         end: "bottom center",
+    //         onEnter: (e) => {
+    //           console.log(e);
+    //         },
+    //         onUpdate: (self) => {
+
+    //         },
+    //       },
+    //     });
+    //   })
+    // }
   }
 }
